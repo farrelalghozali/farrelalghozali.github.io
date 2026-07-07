@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Farrel Al Ghozali - Portofolio</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        /* ----- RESET & GLOBAL ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f6f9;
+            color: #1e2a3a;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ----- HEADER / NAV ----- */
+        header {
+            background: #0d1b2a;
+            color: #fff;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: #f9a826;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.05rem;
+        }
+        .nav-links a:hover {
+            color: #f9a826;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* ----- HERO ----- */
+        .hero {
+            background: linear-gradient(145deg, #0d1b2a 0%, #1b3a4b 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .hero h1 span {
+            color: #f9a826;
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 10px auto;
+            opacity: 0.9;
+        }
+        .hero .info {
+            font-size: 1rem;
+            margin: 5px 0;
+            opacity: 0.85;
+        }
+        .hero .info i {
+            color: #f9a826;
+            margin-right: 8px;
+        }
+        .hero .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #f9a826;
+            color: #0d1b2a;
+            padding: 14px 38px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: 0.3s;
+        }
+        .hero .btn:hover {
+            background: #ffbe4d;
+            transform: scale(1.03);
+        }
+
+        /* ----- SECTION TITLE ----- */
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #f9a826;
+            margin: 10px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ----- ABOUT ----- */
+        .about {
+            padding: 70px 0;
+            background: #fff;
+        }
+        .about-grid {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-img {
+            flex: 1 1 250px;
+            text-align: center;
+        }
+        .about-img img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #f9a826;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #1b3a4b;
+        }
+        .about-text {
+            flex: 2 1 350px;
+        }
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #0d1b2a;
+        }
+        .about-text p {
+            font-size: 1.05rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .about-text .highlight {
+            color: #f9a826;
+            font-weight: 600;
+        }
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            gap: 16px;
+            font-size: 1.8rem;
+        }
+        .social-icons a {
+            color: #0d1b2a;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            color: #f9a826;
+            transform: translateY(-3px);
+        }
+
+        /* ----- SKILLS ----- */
+        .skills {
+            padding: 70px 0;
+            background: #f4f6f9;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .skill-card {
+            background: #fff;
+            padding: 20px 15px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+        .skill-card:hover {
+            border-bottom-color: #f9a826;
+            transform: translateY(-6px);
+        }
+        .skill-card i {
+            font-size: 2.2rem;
+            color: #f9a826;
+            margin-bottom: 8px;
+        }
+        .skill-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .skill-card p {
+            font-size: 0.75rem;
+            color: #777;
+            margin-top: 3px;
+        }
+
+        /* ----- EXPERIENCE / PROJECTS ----- */
+        .experience {
+            padding: 70px 0;
+            background: #fff;
+        }
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .exp-card {
+            background: #f4f6f9;
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            transition: 0.3s;
+            border-left: 5px solid #f9a826;
+        }
+        .exp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+        .exp-card h3 {
+            font-size: 1.2rem;
+            color: #0d1b2a;
+        }
+        .exp-card .company {
+            font-weight: 600;
+            color: #f9a826;
+            margin: 5px 0;
+        }
+        .exp-card .period {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .exp-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .exp-card ul li {
+            padding: 4px 0;
+            font-size: 0.95rem;
+            color: #2c3e50;
+        }
+        .exp-card ul li i {
+            color: #f9a826;
+            margin-right: 8px;
+            width: 18px;
+        }
+
+        /* ===== GALERI / PORTOFOLIO ===== */
+        .gallery {
+            padding: 70px 0;
+            background: #f4f6f9;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: #cbd5e1;
+        }
+        .gallery-item .overlay {
+            padding: 15px 18px;
+            background: #fff;
+        }
+        .gallery-item .overlay h4 {
+            font-size: 1rem;
+            color: #0d1b2a;
+        }
+        .gallery-item .overlay p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 3px;
+        }
+        .gallery-item .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #f9a826;
+            color: #0d1b2a;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* ----- LIGHTBOX (popup) ----- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+        .lightbox.active {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+        .lightbox .close-lightbox {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+            background: none;
+            border: none;
+        }
+        .lightbox .close-lightbox:hover {
+            color: #f9a826;
+            transform: rotate(90deg);
+        }
+        .lightbox .caption {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background: rgba(0,0,0,0.6);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        /* ----- ACHIEVEMENTS ----- */
+        .achievements {
+            padding: 70px 0;
+            background: #fff;
+        }
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .achieve-card {
+            background: #f4f6f9;
+            padding: 25px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .achieve-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+        .achieve-card i {
+            font-size: 2.5rem;
+            color: #f9a826;
+            margin-bottom: 12px;
+        }
+        .achieve-card h4 {
+            font-size: 1rem;
+            color: #0d1b2a;
+        }
+        .achieve-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* ----- EDUCATION ----- */
+        .education {
+            padding: 70px 0;
+            background: #f4f6f9;
+        }
+        .edu-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .edu-card {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 20px;
+            flex: 1 1 300px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            border-top: 5px solid #f9a826;
+        }
+        .edu-card h3 {
+            font-size: 1.3rem;
+            color: #0d1b2a;
+        }
+        .edu-card .school {
+            font-weight: 600;
+            color: #f9a826;
+        }
+        .edu-card p {
+            margin: 5px 0;
+            color: #2c3e50;
+        }
+
+        /* ----- CONTACT ----- */
+        .contact {
+            padding: 70px 0;
+            background: #fff;
+        }
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .contact-info {
+            flex: 1 1 260px;
+        }
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #0d1b2a;
+        }
+        .contact-info p {
+            margin: 12px 0;
+            font-size: 1.05rem;
+        }
+        .contact-info i {
+            width: 30px;
+            color: #f9a826;
+        }
+        .contact-form {
+            flex: 2 1 360px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            background: #f4f6f9;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .contact-form textarea {
+            border-radius: 20px;
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contact-form button {
+            background: #0d1b2a;
+            color: #fff;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .contact-form button:hover {
+            background: #f9a826;
+            color: #0d1b2a;
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            background: #0d1b2a;
+            color: #ccc;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.95rem;
+        }
+        footer span {
+            color: #f9a826;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                padding: 20px 0 5px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .about-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .exp-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+            .lightbox img {
+                max-width: 95%;
+                max-height: 70%;
+            }
+            .lightbox .caption {
+                font-size: 0.85rem;
+                padding: 8px 18px;
+            }
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Farrel<span>Porto</span></div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#skills">Keahlian</a></li>
+                    <li><a href="#experience">Pengalaman</a></li>
+                    <li><a href="#gallery">Portofolio</a></li>
+                    <li><a href="#education">Pendidikan</a></li>
+                    <li><a href="#achievements">Penghargaan</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <h1>Halo, Saya <span>Farrel Al Ghozali</span></h1>
+            <p class="subtitle">Lulusan SMK Teknik Otomasi Industri dengan spesialisasi <strong>Electrical Maintenance</strong> &amp; <strong>PLC Programming</strong></p>
+            <p class="info"><i class="fas fa-phone"></i> 0895603230922</p>
+            <p class="info"><i class="fas fa-envelope"></i> farrelaghozali01@gmail.com</p>
+            <p class="info"><i class="fas fa-map-marker-alt"></i> Kota Cilegon, Banten</p>
+            <a href="#gallery" class="btn">Lihat Portofolio Saya</a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="https://ui-avatars.com/api/?name=Farrel+Al+Ghozali&size=200&background=f9a826&color=fff&bold=true" alt="Farrel Al Ghozali" />
+                </div>
+                <div class="about-text">
+                    <h3>Tentang Saya</h3>
+                    <p>
+                        Saya lulusan <span class="highlight">SMK YPWKS CILEGON</span> Jurusan 
+                        <span class="highlight">Teknik Otomasi Industri</span> dengan nilai rata-rata <span class="highlight">83.00</span>.
+                    </p>
+                    <p>
+                        Saya memiliki pengalaman kerja di bidang <span class="highlight">Electrical Maintenance</span> 
+                        di beberapa perusahaan ternama. Saat ini saya sedang mencari pekerjaan di bidang 
+                        <span class="highlight">Electrical Maintenance</span> untuk mengembangkan karir dan keahlian saya.
+                    </p>
+                    <p>
+                        <strong>Tugas Akhir:</strong> Perancangan Sistem Kontrol dan Monitoring Kecepatan Motor Induksi Tiga Fasa Menggunakan PLC, HMI, dan Variable Speed Drive (VSD)
+                    </p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/62895603230922" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:farrelaghozali01@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Kemampuan</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-microchip"></i>
+                    <h4>CX Programmer</h4>
+                    <p>PLC Omron</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-desktop"></i>
+                    <h4>CX Designer &amp; NB Designer</h4>
+                    <p>HMI Omron</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-sliders-h"></i>
+                    <h4>CX Drive</h4>
+                    <p>Konfigurasi VSD</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-microchip"></i>
+                    <h4>Ecostructure Machine Basic</h4>
+                    <p>PLC Schneider</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-desktop"></i>
+                    <h4>Vijieo Designer</h4>
+                    <p>HMI Schneider</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-microchip"></i>
+                    <h4>PLC Editor</h4>
+                    <p>PLC Wecon</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-desktop"></i>
+                    <h4>PiS Studio</h4>
+                    <p>HMI Wecon</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Proteus</h4>
+                    <p>Simulasi Elektronika</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>Mikrokontroler</h4>
+                    <p>Arduino, ESP, dll</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Electrical Distribution</h4>
+                    <p>Distribusi Daya Listrik</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Pengalaman Kerja</h2>
+            <div class="exp-grid">
+
+                <!-- Krakatau Chandra Energi -->
+                <div class="exp-card">
+                    <h3>Krakatau Chandra Energi</h3>
+                    <p class="company">Divisi: Maintenance Medium Voltage</p>
+                    <p class="period"><i class="far fa-calendar-alt"></i> September 2022 - Desember 2022</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Perawatan Circuit Breaker pada gardu supply</li>
+                        <li><i class="fas fa-check-circle"></i> Pengecekan fasa RST, Ampere, dan temperatur komponen</li>
+                    </ul>
+                </div>
+
+                <!-- Rumah Sakit Krakatau Medika -->
+                <div class="exp-card">
+                    <h3>Rumah Sakit Krakatau Medika</h3>
+                    <p class="company">Divisi: Electrical Maintenance</p>
+                    <p class="period"><i class="far fa-calendar-alt"></i> Maret 2023 - Juni 2023</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Perawatan Air Conditioner (AC)</li>
+                        <li><i class="fas fa-check-circle"></i> Pengecekan cairan freon, kapasitor blower, dan kompresor</li>
+                    </ul>
+                </div>
+
+                <!-- Dover Chemical -->
+                <div class="exp-card">
+                    <h3>Dover Chemical</h3>
+                    <p class="company">Divisi: Electrical Maintenance</p>
+                    <p class="period"><i class="far fa-calendar-alt"></i> Agustus 2024 - Desember 2024</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Perawatan Motor/Pompa Tanki Chemical</li>
+                        <li><i class="fas fa-check-circle"></i> Pengecekan Fasa RST, Ampere, RPM, dan temperatur</li>
+                        <li><i class="fas fa-check-circle"></i> Visual check pada motor/pompa</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALERI / PORTOFOLIO ===== -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Portofolio & Sertifikat</h2>
+            <div class="gallery-grid">
+                
+                <!-- 1. Juara 1 PLC Competition FST FEST -->
+                <div class="gallery-item" onclick="openLightbox('gambar/sertifikat-fst-fest.jpg', 'Juara 1 PLC Competition - FST Fest 2024 Universitas Faletehan')">
+                    <img src="gambar/sertifikat-fst-fest.jpg" alt="Sertifikat Juara 1 PLC Competition FST Fest" />
+                    <div class="overlay">
+                        <h4>🏆 Juara 1 PLC Competition</h4>
+                        <p>FST Fest 2024 - Universitas Faletehan</p>
+                    </div>
+                    <span class="badge">Juara 1</span>
+                </div>
+
+                <!-- 2. Juara 2 LKS Provinsi Banten -->
+                <div class="gallery-item" onclick="openLightbox('gambar/piagam-lks-provinsi.jpg', 'Juara 2 Industrial Control - LKS SMK Tingkat Provinsi Banten 2024')">
+                    <img src="gambar/piagam-lks-provinsi.jpg" alt="Piagam Juara 2 LKS Provinsi Banten" />
+                    <div class="overlay">
+                        <h4>🥈 Juara 2 LKS Industrial Control</h4>
+                        <p>Tingkat Provinsi Banten 2024</p>
+                    </div>
+                    <span class="badge">Juara 2</span>
+                </div>
+
+                <!-- 3. Sertifikat PLC Nasional Maestro Fest -->
+                <div class="gallery-item" onclick="openLightbox('gambar/sertifikat-maestro-fest.jpg', 'Peserta Lomba PLC Nasional - Maestro Fest 2024 Politeknik Astra')">
+                    <img src="gambar/sertifikat-maestro-fest.jpg" alt="Sertifikat Maestro Fest" />
+                    <div class="overlay">
+                        <h4>📜 Peserta PLC Nasional</h4>
+                        <p>Maestro Fest 2024 - Politeknik Astra</p>
+                    </div>
+                    <span class="badge">Peserta</span>
+                </div>
+
+                <!-- 4. Sertifikat WECON Tech Competition -->
+                <div class="gallery-item" onclick="openLightbox('gambar/sertifikat-wecon.jpg', 'Peserta WECON Tech Competition 2026 - Lomba PLC & HMI Wecon')">
+                    <img src="gambar/sertifikat-wecon.jpg" alt="Sertifikat WECON Competition" />
+                    <div class="overlay">
+                        <h4>⚙️ Peserta WECON Competition</h4>
+                        <p>Lomba PLC &amp; HMI Wecon 2026</p>
+                    </div>
+                    <span class="badge">Peserta</span>
+                </div>
+
+                <!-- 5. Sertifikat Workshop Elektro UF -->
+                <div class="gallery-item" onclick="openLightbox('gambar/sertifikat-workshop-uf.jpg', 'Peserta Workshop PLC Omron & HMI Haiwell - Universitas Faletehan')">
+                    <img src="gambar/sertifikat-workshop-uf.jpg" alt="Sertifikat Workshop Elektro UF" />
+                    <div class="overlay">
+                        <h4>🛠️ Workshop PLC &amp; HMI</h4>
+                        <p>Universitas Faletehan</p>
+                    </div>
+                    <span class="badge">Workshop</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIGHTBOX (popup) ===== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="close-lightbox" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImg" src="" alt="Preview" />
+        <div class="caption" id="lightboxCaption">Caption</div>
+    </div>
+
+    <!-- ===== EDUCATION ===== -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2 class="section-title">Pendidikan</h2>
+            <div class="edu-wrapper">
+                <div class="edu-card">
+                    <h3>SMK YPWKS Cilegon</h3>
+                    <p class="school">Teknik Otomasi Industri</p>
+                    <p><i class="fas fa-star" style="color:#f9a826;"></i> Nilai Rata-rata: <strong>83.00</strong></p>
+                    <p><i class="fas fa-calendar-alt" style="color:#f9a826;"></i> 2021 - 2025</p>
+                    <p><i class="fas fa-map-marker-alt" style="color:#f9a826;"></i> Kota Cilegon, Banten</p>
+                    <p style="margin-top:10px;"><strong>Tugas Akhir:</strong> Perancangan Sistem Kontrol dan Monitoring Kecepatan Motor Induksi Tiga Fasa Menggunakan PLC, HMI, dan Variable Speed Drive (VSD)</p>
+                    <p><strong>Pelajaran:</strong> Electrical Dasar &amp; Programming PLC HMI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACHIEVEMENTS ===== -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title">Penghargaan & Prestasi</h2>
+            <div class="achievement-grid">
+                <div class="achieve-card">
+                    <i class="fas fa-trophy"></i>
+                    <h4>Juara 1 PLC Competition</h4>
+                    <p>FST Fest 2024 - Universitas Faletehan</p>
+                </div>
+                <div class="achieve-card">
+                    <i class="fas fa-medal"></i>
+                    <h4>Juara 1 LKS Industrial Control</h4>
+                    <p>Tingkat Kota Cilegon 2024</p>
+                </div>
+                <div class="achieve-card">
+                    <i class="fas fa-medal"></i>
+                    <h4>Juara 2 LKS Industrial Control</h4>
+                    <p>Tingkat Provinsi Banten 2024</p>
+                </div>
+                <div class="achieve-card">
+                    <i class="fas fa-award"></i>
+                    <h4>Peserta PLC National Competition</h4>
+                    <p>Maestro Fest 2024 - Politeknik Astra</p>
+                </div>
+                <div class="achieve-card">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Peserta Electrical Skill Competition</h4>
+                    <p>PLC HMI - Politeknik Negeri Madiun</p>
+                </div>
+                <div class="achieve-card">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Peserta WECON Competition</h4>
+                    <p>Lomba PLC &amp; HMI Wecon</p>
+                </div>
+                <div class="achieve-card">
+                    <i class="fas fa-certificate"></i>
+                    <h4>Peserta PLC HMI E-TIME</h4>
+                    <p>Politeknik Negeri Jakarta</p>
+                </div>
+                <div class="achieve-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>Peserta Sumobot RC 500g</h4>
+                    <p>Universitas Gajah Mada</p>
+                </div>
+                <div class="achieve-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h4>Pemateri Workshop PLC</h4>
+                    <p>Automation PLC Engineering Experience (APEX)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Mari Terhubung</h3>
+                    <p><i class="fas fa-phone-alt"></i> 0895603230922</p>
+                    <p><i class="fas fa-envelope"></i> farrelaghozali01@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kota Cilegon, Banten</p>
+                    <p><i class="fab fa-whatsapp"></i> 0895603230922</p>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Nama Lengkap" required />
+                        <input type="email" placeholder="Alamat Email" required />
+                        <input type="text" placeholder="No. Telepon" />
+                        <textarea placeholder="Pesan Anda..." required></textarea>
+                        <button type="submit">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <span>Farrel Al Ghozali</span>. Electrical Maintenance &amp; PLC Enthusiast.</p>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Lightbox / Popup
+        function openLightbox(imgSrc, captionText) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImg');
+            const caption = document.getElementById('lightboxCaption');
+            img.src = imgSrc;
+            caption.textContent = captionText || 'Dokumentasi Farrel Al Ghozali';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Tutup lightbox dengan tombol ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Form contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih, Farrel! Pesan Anda telah terkirim (simulasi).');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
